@@ -21,7 +21,7 @@ module FilterTweakVersionsSortPatch
       options += date_limited_versions.sort_by{|v| v.effective_date}.collect{|s| ["#{s.project.name} - #{s.name}", s.id.to_s] }
       options += date_unlimited_versions.sort.reverse.collect{|s| ["#{s.project.name} - #{s.name}", s.id.to_s] }
       options.push ['', '']
-      options.push ["----- closed versions -----", '']
+      options.push ["----- locked or closed versions -----", '']
       options += closed_versions.sort.reverse.collect{|s| ["#{s.project.name} - #{s.name}", s.id.to_s] }
       @available_filters["fixed_version_id"][:values] = options 
 
